@@ -9,16 +9,23 @@ public class Frame extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         setContentPane(new JLayeredPane());
-        getContentPane().setBackground(Color.BLACK);
+        addBackground();
         addCanvas();
     }
 
+    private void addBackground() {
+        JLabel bg = new JLabel();
+        bg.setBackground(Color.BLACK);
+        bg.setBounds(0, 0, getWidth(), getHeight());
+        bg.setOpaque(true);
+        getContentPane().add(bg, new Integer(0));
+    }
     private void addCanvas() {
         JLabel drawCanvas = new JLabel();
-        drawCanvas.setBounds(20, 20, 500, 580);
+        drawCanvas.setBounds(20, 20, 500, 520);
         drawCanvas.setLocation(20, 20);
         drawCanvas.setBackground(Color.WHITE);
         drawCanvas.setOpaque(true);
-        add(drawCanvas);
+        getContentPane().add(drawCanvas, new Integer(1));
     }
 }
